@@ -1,0 +1,110 @@
+
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#101827">
+<title>BHAGRAJ AI</title>
+<style>
+*{box-sizing:border-box}
+body{
+ margin:0;padding:20px;
+ background:linear-gradient(145deg,#101827,#29245a);
+ color:white;font-family:Arial,sans-serif;
+ min-height:100vh
+}
+main{max-width:650px;margin:auto}
+header{text-align:center;padding:35px 10px}
+.logo{
+ width:75px;height:75px;margin:auto;
+ border-radius:23px;background:linear-gradient(135deg,#fbbf24,#f97316);
+ display:grid;place-items:center;
+ color:#111;font-size:35px;font-weight:bold
+}
+h1{font-size:30px;margin-bottom:8px}
+p{color:#cbd5e1;line-height:1.6}
+.card{
+ background:#ffffff12;border:1px solid #ffffff25;
+ border-radius:20px;padding:20px;margin:15px 0
+}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+a,button{
+ display:block;text-align:center;text-decoration:none;
+ padding:16px;border:0;border-radius:13px;
+ font-size:15px;font-weight:bold;cursor:pointer
+}
+.chatgpt{background:#10a37f;color:white}
+.gemini{background:#4285f4;color:white}
+.other{background:#374151;color:white}
+textarea{
+ width:100%;height:110px;padding:13px;
+ border-radius:12px;background:#111827;
+ color:white;border:1px solid #64748b;font-size:15px
+}
+button{width:100%;margin-top:12px;background:#fbbf24;color:#111}
+.small{font-size:12px}
+footer{text-align:center;color:#94a3b8;padding:20px}
+@media(max-width:400px){.grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<main>
+<header>
+<div class="logo">B</div>
+<h1>BHAGRAJ AI</h1>
+<p>तुम्हारा अपना Personal AI Assistant</p>
+</header>
+
+<section class="card">
+<h2>🤖 अपना AI चुनें</h2>
+<div class="grid">
+<a class="chatgpt" href="https://chatgpt.com/" target="_blank">ChatGPT ↗</a>
+<a class="gemini" href="https://gemini.google.com/" target="_blank">Gemini ↗</a>
+</div>
+<p>बिना API Key के आधिकारिक ChatGPT और Gemini इस्तेमाल करें।</p>
+</section>
+
+<section class="card">
+<h2>💬 अपना सवाल लिखें</h2>
+<textarea id="question" placeholder="यहाँ अपना सवाल लिखें..."></textarea>
+<button onclick="copyQuestion()">सवाल कॉपी करें</button>
+<p id="status" class="small">सवाल कॉपी करके ChatGPT या Gemini में पेस्ट करें।</p>
+</section>
+
+<section class="card">
+<h2>🎨 Creator Tools</h2>
+<div class="grid">
+<a class="other" href="https://labs.google/fx/tools/flow" target="_blank">Google Flow</a>
+<a class="other" href="https://www.capcut.com/" target="_blank">CapCut</a>
+</div>
+</section>
+
+<section class="card">
+<h2>✨ About BHAGRAJ AI</h2>
+<p>यह तुम्हारा अपना AI Dashboard है। इसमें कोई API Key या पासवर्ड सेव नहीं होता।</p>
+<p class="small">ChatGPT और Gemini अपनी आधिकारिक वेबसाइट पर काम करते हैं।</p>
+</section>
+
+<footer>BHAGRAJ AI © 2026</footer>
+</main>
+
+<script>
+async function copyQuestion(){
+ const q=document.getElementById("question");
+ const s=document.getElementById("status");
+ if(!q.value.trim()){
+  s.textContent="पहले सवाल लिखें।";
+  return;
+ }
+ try{
+  await navigator.clipboard.writeText(q.value);
+  s.textContent="सवाल कॉपी हो गया!";
+ }catch(e){
+  q.select();
+  s.textContent="सवाल चुन लिया गया है। Copy करें।";
+ }
+}
+</script>
+</body>
+</html>
